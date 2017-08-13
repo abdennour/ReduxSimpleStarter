@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 import SearchBar from './SearchBar';
 import VideoList from './VideoList';
 import VideoDetail from './VideoDetail';
@@ -20,11 +21,17 @@ class App extends Component {
       })
     );
   };
+
+  debouncedSearchVideo = () => {
+    return _.debounce(term => {
+      this.searchVideo(term);
+    }, 870);
+  };
   render() {
     return (
       <div>
         <div className="row">
-          <SearchBar onSearchTermChange={this.searchVideo} />
+          <SearchBar onSearchTermChange={this.debouncedSearchVideo()} />
         </div>
         <VideoDetail {...this.state.selectedVideo} />
         <VideoList
