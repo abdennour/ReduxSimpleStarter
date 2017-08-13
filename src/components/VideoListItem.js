@@ -2,7 +2,7 @@ import React from 'react';
 function VideoListItem({ title, videoId, ...rest }) {
   return (
     <li
-      className="list-group-item"
+      className="list-group-item video-item"
       onClick={event => rest.onVideoSelect({ title, videoId, ...rest })}
     >
       <div className="video-list media">

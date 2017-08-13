@@ -7,7 +7,11 @@ class App extends Component {
   state = { videos: [], selectedVideo: null };
   videoShape = { snippet: {}, id: {} };
   componentDidMount() {
-    searchYoutube('ReactJS', videos =>
+    this.searchVideo('Today news');
+  }
+
+  searchVideo = term => {
+    searchYoutube(term, videos =>
       this.setState({
         videos,
         selectedVideo: videos.length
@@ -15,12 +19,12 @@ class App extends Component {
           : videoShape
       })
     );
-  }
+  };
   render() {
     return (
       <div>
         <div className="row">
-          <SearchBar />
+          <SearchBar onSearchTermChange={this.searchVideo} />
         </div>
         <VideoDetail {...this.state.selectedVideo} />
         <VideoList
