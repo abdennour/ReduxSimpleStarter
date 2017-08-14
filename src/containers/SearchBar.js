@@ -16,20 +16,20 @@ class SearchBar extends Component {
   render() {
     return (
       <form action="" onSubmit={this.onSubmit}>
-        <div class="col-lg-6">
-          <div class="input-group">
-            <span class="input-group-btn">
-              <button class="btn btn-secondary" type="button">
-                Search!
-              </button>
-            </span>
+        <div className="col-lg-6">
+          <div className="input-group">
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               placeholder="Search for..."
               onChange={this.onChangeInput}
               value={this.state.term}
             />
+            <span className="input-group-btn">
+              <button className="btn btn-secondary" type="button">
+                Search!
+              </button>
+            </span>
           </div>
         </div>
       </form>
