@@ -22,16 +22,16 @@ class App extends Component {
     );
   };
 
-  debouncedSearchVideo = () => {
+  debouncedSearchVideo = (timeout = 300) => {
     return _.debounce(term => {
       this.searchVideo(term);
-    }, 870);
+    }, timeout);
   };
   render() {
     return (
       <div>
         <div className="row">
-          <SearchBar onSearchTermChange={this.debouncedSearchVideo()} />
+          <SearchBar onSearchTermChange={this.debouncedSearchVideo(900)} />
         </div>
         <VideoDetail {...this.state.selectedVideo} />
         <VideoList
