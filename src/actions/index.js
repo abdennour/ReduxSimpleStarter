@@ -1,7 +1,7 @@
 import axios from 'axios';
 const API_KEY = 'e3d7c78cdb33ed566b03b7528e8b24bd'; //https://home.openweathermap.org/api_keys
 const endpoint = q =>
-  `http://api.openweathermap.org/data/2.5/weather?q=${q}&APPID=${API_KEY}`;
+  `http://api.openweathermap.org/data/2.5/forecast?q=${q}&APPID=${API_KEY}`;
 
 const FETCH_WEATHER = 'FETCH_WEATHER';
 // export function _fetchWeather(city) {
