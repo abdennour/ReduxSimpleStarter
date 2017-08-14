@@ -32,8 +32,8 @@ class WeatherList extends Component {
         <td>
           <Chart
             data={getData(cityData, 'humidity')}
-            height={120}
-            width={180}
+            height={60}
+            width={100}
             color="green"
           />
         </td>
