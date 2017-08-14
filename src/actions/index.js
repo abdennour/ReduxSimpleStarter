@@ -21,6 +21,6 @@ const FETCH_WEATHER = 'FETCH_WEATHER';
 
 export function fetchWeather(city) {
   const url = endpoint(`${city},us`);
-  const request = axios.get(url);
+  const request = axios.get(url).then(r => r.data);
   return { type: FETCH_WEATHER, payload: request };
 }
