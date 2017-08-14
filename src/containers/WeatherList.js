@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Sparklines, SparklinesLine } from 'react-sparklines';
+import Chart from '../components/Chart';
 import { connect } from 'react-redux';
 const getData = (cityData, weatherField) => {
   return cityData.list.map(({ main }) => main[weatherField]);
@@ -8,16 +8,34 @@ class WeatherList extends Component {
   renderWeather(cityData) {
     console.log(cityData);
     const { name } = cityData.city;
-    const temps = getData(cityData, 'temp');
     return (
       <tr key={name + Date.now()}>
         <td>
           {name}
         </td>
         <td>
-          <Sparklines height={120} width={180} data={temps}>
-            <SparklinesLine color="red" />
-          </Sparklines>
+          <Chart
+            data={getData(cityData, 'temp')}
+            height={120}
+            width={180}
+            color="orange"
+          />
+        </td>
+        <td>
+          <Chart
+            data={getData(cityData, 'pressure')}
+            height={120}
+            width={180}
+            color="blue"
+          />
+        </td>
+        <td>
+          <Chart
+            data={getData(cityData, 'humidity')}
+            height={120}
+            width={180}
+            color="green"
+          />
         </td>
       </tr>
     );
